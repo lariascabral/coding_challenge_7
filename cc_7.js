@@ -24,15 +24,24 @@ console.log (calculateHourlyWage(75000, 35));                           // Outpu
 
 // Task 3 - Customer Loyalty Discount
 
-function calculateLoyaltyDiscount(amount, years) => {
-    let discountPercentage = years >= 5 ? 0.15 : years >= 3 ? 0.10 : 0.05 ;
-    let discountedPrice = amount - (amount * discountPercentage) ;
-    return `Discounted Price: $${discountedPrice.toFixed(2)}` ;
-} ;
+const calculateLoyaltyDiscount = (amount, years) => {                   // Function for service fees calculation
+    let discountPercentage ;
+    if (years >= 5) {
+        discountPercentage = 0.15
+    } 
+    else if (years >= 3) {
+        discountPercentage = 0.10
+    }
+    else {
+        discountPercentage = 0.05                                       // Metrics for percentages in fees
+    } ;
+    const discountedPrice = amount - (amount * discountPercentage)
+    return `Discounted Price: $${discountedPrice.toFixed(2)}`
+    } ;
 
 // Test Data
-console.log(calculateLoyaltyDiscount(100, 6)); // Expected output: Discounted Price: $85.00
-console.log(calculateLoyaltyDiscount(200, 2)); // Expected output: Discounted Price: $190.00
+console.log(calculateLoyaltyDiscount(100, 6));                          // Output: Discounted Price: $85.00
+console.log(calculateLoyaltyDiscount(200, 2));                          // Output: Discounted Price: $190.00
 
 // Task 4 - Product Shipping Cost Calculation
 
@@ -55,5 +64,4 @@ function calculateShippingCost (weight, location, expedited = false) {
 
 console.log (calculateShippingCost(10, "USA", true)) ;                  // Output: Shipping Cost: $20.00
 console.log (calculateShippingCost(5, "Canada", false)) ;               // Output: Shipping Cost: $13.50
-
 
