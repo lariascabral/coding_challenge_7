@@ -20,3 +20,26 @@ function calculateHourlyWage (salary, hoursPerWeek) {
 // Test Data
 console.log (calculateHourlyWage(52000, 40)) ;                          // Output: Hourly Wage: $25.00
 console.log (calculateHourlyWage(75000, 35));                           // Output: Hourly Wage: $41.21
+
+
+// Task 3 - Customer Loyalty Discount
+
+function calculateShippingCost (weight, location, expedited = false) {
+    let base, lb, expeditedCost ;
+    if (location === "USA") {
+        base = 5 ;
+         lb = 0.5 ;
+         expeditedCost = expedited ? 10 : 0 ;
+    } else if (location === "Canada") {
+        base = 10 ;
+         lb = 0.7 ;
+         expeditedCost = expedited ? 10 : 0 ;      
+    } else {
+        return "Review your selection. Invalid location."
+    } ;
+    let shippingCost = base + (weight * lb) + expeditedCost ;
+    return `Shipping Cost: $${shippingCost.toFixed(2)}`
+} ; 
+
+console.log (calculateShippingCost(10, "USA", true)) ;                  // Output: Shipping Cost: $20.00
+console.log (calculateShippingCost(5, "Canada", false)) ;               // Output: Shipping Cost: $13.50
