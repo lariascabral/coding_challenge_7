@@ -73,6 +73,7 @@ function calculateLoanInterest (principal, rate, years) {
     return `Total Interest: $${interest.toFixed(2)}`                    // Function to calcualte loan interest
 } ;
 
+// Test Data
 console.log(calculateLoanInterest(1000, 0.05, 3)) ;                     // Output: Total Interest: $150.00
 console.log(calculateLoanInterest(5000, 0.07, 5)) ;                     // Output: Total Interest: $1750.00
 
@@ -85,4 +86,23 @@ const filterHighValueTransactions = (transctions, filterFunction) => {
     return `High-Value Transactions (filtered): ${transctions.filter(filterFunction)}`
 } ;
 
+// Test Data
 console.log(filterHighValueTransactions(transactions, item => item > 1000));        // Output: High-Value Transactions (filtered): 1200,3000,2200
+
+
+// Task 7 - Budget Tracker
+
+function createBudgetTraker() {                               // Creation of the primary function
+    let balance = 0 ; 
+    return function(expense) {                                  // Creation of the secundary function
+        balance -= expense ;
+    return `Current Balance: -$${Math.abs(balance)}` ;
+    } ;
+}
+
+let budget = createBudgetTraker();
+
+// Test Data
+console.log(budget(300));                                       // Output: Current Balance: -$300
+console.log(budget(200));                                       // Output: Current Balance: -$200
+
