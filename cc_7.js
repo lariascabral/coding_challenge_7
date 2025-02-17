@@ -87,7 +87,7 @@ const filterHighValueTransactions = (transctions, filterFunction) => {
 } ;
 
 // Test Data
-console.log(filterHighValueTransactions(transactions, item => item > 1000));        // Output: High-Value Transactions (filtered): 1200,3000,2200
+console.log(filterHighValueTransactions(transactions, amount => amount > 1000));        // Output: High-Value Transactions (filtered): 1200,3000,2200
 
 
 // Task 7 - Budget Tracker
