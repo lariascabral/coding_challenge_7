@@ -94,15 +94,26 @@ console.log(filterHighValueTransactions(transactions, item => item > 1000));    
 
 function createBudgetTraker() {                               // Creation of the primary function
     let balance = 0 ; 
-    return function(expense) {                                  // Creation of the secundary function
+    return function(expense) {                                  // Creation of secondary function
         balance -= expense ;
     return `Current Balance: -$${Math.abs(balance)}` ;
     } ;
 }
 
-let budget = createBudgetTraker();
+let budget = createBudgetTraker();                              // Function calling
 
 // Test Data
 console.log(budget(300));                                       // Output: Current Balance: -$300
 console.log(budget(200));                                       // Output: Current Balance: -$200
 
+
+// Task 8 - Business Growth Projection
+
+function calculateGrowth(years, revenue) {
+    if (years >= 10) return revenue ;                           // If in year 10 or greater, it will return the current revenue
+    return calculateGrowth(years + 1, revenue * 1.05) ;         // Otherwise, calculate the growth
+} ;
+
+// Test Data
+console.log(`Projected Revenue: $${calculateGrowth(8, 1000).toFixed(2)}`) ;         // Output: Projected Revenue: $1102.50
+console.log(`Projected Revenue: $${calculateGrowth(5, 5000).toFixed(2)}`) ;         // Output: Projected Revenue: $6381.41
